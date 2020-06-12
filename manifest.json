@@ -6,7 +6,7 @@
   "icons": {
     "64": "icons/icon.png"
   },
-  "permissions": ["tabs", "clipboardWrite"],
+  "permissions": ["tabs", "contextMenus", "clipboardWrite"],
   "background": {
     "scripts": ["background_script.js"]
   },
