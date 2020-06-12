@@ -6,27 +6,20 @@
   "icons": {
     "64": "icons/icon.png"
   },
+  "permissions": ["tabs", "clipboardWrite"],
   "background": {
-    "scripts": [
-      "background_script.js"
-    ]
+    "scripts": ["background_script.js"]
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://*.mozilla.org/*"
-      ],
-      "js": [
-        "content_script.js"
-      ]
+      "matches": ["*://*.mozilla.org/*"],
+      "js": ["content_script.js"]
     }
   ],
   "browser_action": {
     "default_icon": {
       "64": "icons/icon.png"
-    },
-    "default_popup": "browserAction/index.html",
-    "default_title": "TabsToURLs"
+    }
   },
   "page_action": {
     "default_icon": {
