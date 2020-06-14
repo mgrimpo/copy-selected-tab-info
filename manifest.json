@@ -10,25 +10,10 @@
   "background": {
     "scripts": ["background_script.js"]
   },
-  "content_scripts": [
-    {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["content_script.js"]
-    }
-  ],
+  "content_scripts": [],
   "browser_action": {
     "default_icon": {
       "64": "icons/copy-selected-tab-info-ICON-64x64.png"
     }
-  },
-  "page_action": {
-    "default_icon": {
-      "64": "icons/copy-selected-tab-info-ICON-64x64.png"
-    },
-    "default_popup": "pageAction/index.html",
-    "default_title": "Copy Selected Tab Info"
-  },
-  "options_ui": {
-    "page": "options/index.html"
   }
 }

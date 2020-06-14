@@ -35,6 +35,28 @@ function tabsToMarkdown(tabs, returnAsList = false, separator = " ") {
     .join(separator);
 }
 
+async function copyUrlOnly() {
+  const tabUrlsString = tabsToText(await getSelectedTabs(), {
+    includeTitle: false,
+  });
+  navigator.clipboard.writeText(tabUrlsString);
+}
+
+async function copyTitleAndUrl() {
+  const titlesAndUrlsString = tabsToText(await getSelectedTabs());
+  navigator.clipboard.writeText(titlesAndUrlsString);
+}
+
+async function copyMarkdown() {
+  const markdown = tabsToMarkdown(await getSelectedTabs());
+  navigator.clipboard.writeText(markdown);
+}
+
+async function copyMarkdownList() {
+  const markdown = tabsToMarkdown(await getSelectedTabs(), true, "\n");
+  navigator.clipboard.writeText(markdown);
+}
+
 browser.browserAction.onClicked.addListener(copyTitleAndUrl);
 
 const copyUrlOnlyMenuID = "copy-url-only";
@@ -82,25 +104,3 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
       break;
   }
 });
-
-async function copyUrlOnly() {
-  const tabUrlsString = tabsToText(await getSelectedTabs(), {
-    includeTitle: false,
-  });
-  navigator.clipboard.writeText(tabUrlsString);
-}
-
-async function copyTitleAndUrl() {
-  const titlesAndUrlsString = tabsToText(await getSelectedTabs());
-  navigator.clipboard.writeText(titlesAndUrlsString);
-}
-
-async function copyMarkdown() {
-  const markdown = tabsToMarkdown(await getSelectedTabs());
-  navigator.clipboard.writeText(markdown);
-}
-
-async function copyMarkdownList() {
-  const markdown = tabsToMarkdown(await getSelectedTabs(), true, "\n");
-  navigator.clipboard.writeText(markdown);
-}

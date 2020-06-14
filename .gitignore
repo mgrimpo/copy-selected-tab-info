@@ -1,10 +1,8 @@
 #A default gitignore, taken from https://github.com/github/gitignore/blob/master/Node.gitignore
 
 # Add custom patterns here
-
-
-
-
+web-ext-artifacts
+.web-extension-id
 
 ###############################################################################
 
