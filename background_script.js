@@ -4,23 +4,18 @@ async function getSelectedTabs() {
   });
 }
 
-function addDefaultForMissingOptions(options) {
+function setMissingOptionsToDefault(options) {
   const defaultOptions = {
     includeTitle: true,
     includeURL: true,
-    titleUrlSeparator: ",",
+    titleUrlSeparator: ", ",
     tabStringSeparator: "\n",
   };
-  if (options === undefined) return defaultOptions;
-  const result = {};
-  for (const [key, defaultValue] of Object.entries(defaultOptions)) {
-    result[key] = options[key] === undefined ? defaultValue : options[key];
-  }
-  return result;
+  return Object.assign({}, defaultOptions, options);
 }
 
 function tabsToText(tabs, options) {
-  options = addDefaultForMissingOptions(options);
+  options = setMissingOptionsToDefault(options);
   return tabs
     .map((tab) => tabToString(tab, options))
     .join(options.tabStringSeparator);
