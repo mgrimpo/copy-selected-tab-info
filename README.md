@@ -16,6 +16,4 @@ Select tabs in the tab bar and _either_ 1) right click on the tab bar and select
 - [ ] Allow the user to define custom formats for copying the links
 
 ## Attributions
-The icon provided with this extension is a combination of the following two icons from the [Noun Project]( thenounproject.com ):
-* [tab](https://thenounproject.com/term/tab/2355463/) by Adrien Coquet from the Noun Project
-* [copy](https://thenounproject.com/term/copy/2418793/) by Pamerat from the Noun Project
+The icon provided with this extension is a modified version of [copy](https://thenounproject.com/term/copy/2418793/) by Pamerat from the Noun Project.
