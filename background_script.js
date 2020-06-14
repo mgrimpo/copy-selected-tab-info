@@ -4,26 +4,74 @@ async function getSelectedTabs() {
   });
 }
 
-function tabsToText(tabs) {
-  return tabs.map((tab) => `${tab.title}, ${tab.url}`).join("\n");
+function addDefaultForMissingOptions(options) {
+  const defaultOptions = {
+    includeTitle: true,
+    includeURL: true,
+    titleUrlSeparator: ",",
+    tabStringSeparator: "\n",
+  };
+  if (options === undefined) return defaultOptions;
+  const result = {};
+  for (const [key, defaultValue] of Object.entries(defaultOptions)) {
+    result[key] = options[key] === undefined ? defaultValue : options[key];
+  }
+  return result;
 }
 
-async function copySelectedTabs(event) {
-  const tabsAsText = tabsToText(await getSelectedTabs());
+function tabsToText(tabs, options) {
+  options = addDefaultForMissingOptions(options);
+  return tabs
+    .map((tab) => tabToString(tab, options))
+    .join(options.tabStringSeparator);
+}
+
+function tabToString(tab, options) {
+  console.log(options);
+  let result = "";
+  if (options.includeTitle) {
+    result += tab.title;
+  }
+  if (options.includeTitle && options.includeURL) {
+    result += options.titleUrlSeparator;
+  }
+  if (options.includeURL) {
+    result += tab.url;
+  }
+  return result;
+}
+
+async function copySelectedTabs(options) {
+  const tabsAsText = tabsToText(await getSelectedTabs(), options);
   navigator.clipboard.writeText(tabsAsText);
 }
 
 browser.browserAction.onClicked.addListener(copySelectedTabs);
 
+const copyTitleAndUrlsMenuId = "copy-selected-tab-info";
 browser.contextMenus.create({
-  id: "copy-selected-tab-info",
+  id: copyTitleAndUrlsMenuId,
   //title: browser.i18n.getMessage("contextMenuItemSelectionLogger"),
-  title: "Copy title and url of selected tabs to clipboard",
+  title: "Copy the titles and URLs of selected tabs",
   contexts: ["tab"],
 });
 
+const copyUrlOnlyMenuID = "copy-url-only";
+browser.contextMenus.create({
+  id: copyUrlOnlyMenuID,
+  //title: browser.i18n.getMessage("contextMenuItemSelectionLogger"),
+  title: "Copy the URLs of the selected tabs",
+  contexts: ["tab"],
+});
+
+// eslint-disable-next-line no-unused-vars
 browser.contextMenus.onClicked.addListener((info, tab) => {
-  if (info.menuItemId === "copy-selected-tab-info") {
-    copySelectedTabs();
+  switch (info.menuItemId) {
+    case copyTitleAndUrlsMenuId:
+      copySelectedTabs();
+      break;
+    case copyUrlOnlyMenuID:
+      copySelectedTabs({ includeTitle: false });
+      break;
   }
 });
