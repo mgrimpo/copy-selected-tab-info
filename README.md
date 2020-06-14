@@ -1,4 +1,4 @@
-# Copy Selected Tab Info
+# ![extension-icon](icons/copy-selected-tab-info-ICON-64x64.png) Copy Selected Tab Info
 
 This Firefox extension allows you to copy the URLs and titles of the currently selected tabs to clipboard
 
