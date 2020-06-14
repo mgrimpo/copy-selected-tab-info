@@ -8,7 +8,7 @@ Select tabs in the tab bar and _either_ 1) right click on the tab bar and select
 
 ## To Do
 - [x] ~~Use a custom icon~~
-- [ ] Allow the user to choose whether they want to copy only the URL or also the Title
+- [x] ~~Allow the user to choose whether they want to copy only the URL or also the Title~~
 - [ ] Allow the user to copy the tab title and URL in markdown format, with the title as link description
 - [ ] Allow the user to change settings for the extension:
   - [ ] Allow the user to choose the separator character used between the info of different tabs, e.g. newline or comma
