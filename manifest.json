@@ -4,7 +4,7 @@
   "description": "Copies the URLs of the currently selected tabs to clipboard",
   "version": "0.0.1",
   "icons": {
-    "64": "icons/icon.png"
+    "64": "icons/copy-selected-tab-info-ICON.png"
   },
   "permissions": ["tabs", "contextMenus", "clipboardWrite"],
   "background": {
@@ -18,12 +18,12 @@
   ],
   "browser_action": {
     "default_icon": {
-      "64": "icons/icon.png"
+      "64": "icons/copy-selected-tab-info-ICON.png"
     }
   },
   "page_action": {
     "default_icon": {
-      "64": "icons/icon.png"
+      "64": "icons/copy-selected-tab-info-ICON.png"
     },
     "default_popup": "pageAction/index.html",
     "default_title": "Copy Selected Tab Info"
