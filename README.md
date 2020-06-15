@@ -6,10 +6,13 @@ This Firefox extension allows you to copy the URLs and titles of the currently s
 The add-on can be installed through the [Firefox Add-On Gallery](https://addons.mozilla.org/de/firefox/addon/copy-selected-tab-info/).
 
 ## Usage
-Select tabs in the tab bar. Right click anywhere on the tab bar and hover over
-the "Copy Select Tab Info" context menu entry. Select among the available
-formats for copying the URLs and titles of the selected links.
-Alternatively, click on the 'Copy Selected Tab Info' toolbar button created by this extension to copy
+1. Select tabs in the tab bar.
+2. Right click anywhere on the tab bar and hover over the "Copy Select Tab Info" context menu entry
+3. Select among the available formats for copying the URLs and titles of the selected links.
+
+Alternatively:
+1. Select tabs in the tab bar.
+2. Click on the 'Copy Selected Tab Info' toolbar button created by this extension to copy
 the URLs and titles of the selected tabs.
 
 ## Attributions
