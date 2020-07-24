@@ -1,6 +1,7 @@
 async function getSelectedTabs() {
   return browser.tabs.query({
     highlighted: true,
+    currentWindow: true,
   });
 }
 
